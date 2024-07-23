@@ -1,13 +1,29 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, Input } from '@angular/core';
+import { FormsModule } from '@angular/forms'; 
+import { CommonModule } from '@angular/common';
+import { DATA } from './data';
+import { VenueComponent } from './venue/venue.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { OffcanvasComponent } from './offcanvas/offcanvas.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [
+    FormsModule,
+    CommonModule,
+    VenueComponent,
+    NavbarComponent,
+    OffcanvasComponent
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'MeetOver';
+
+  users = DATA;
+  onSelectVenue(id: string){
+    console.log("Selected Venue's id: " + id );
+  }
+  
 }

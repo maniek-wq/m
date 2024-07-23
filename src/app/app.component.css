@@ -1,0 +1,41 @@
+
+main{
+    background-color: #f1f1f1;
+    width:100dvw;
+    height:150dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap:1rem;
+}
+.container-fluid li{
+    list-style: none;
+}
+.container-fluid{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    width: 100%;
+}
+.my-span{
+    width:100%;  
+    color:#5c5b75;
+    font-weight: 600;
+    justify-content: space-between;
+}
+.fa-filter{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    justify-content: center; 
+    align-content: center;  
+  
+    padding: 0px;
+    padding-right:1rem;
+}
+.number-of-properties{
+    width: max-content;
+   
+    padding: 0px;
+    padding-left:1rem;
+}

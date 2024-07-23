@@ -1,0 +1,55 @@
+<div 
+class="main-container " 
+(click)="onSelectVenue()" 
+data-bs-toggle="offcanvas" 
+[attr.data-bs-target]="'#' + uniOffcanvas" 
+[attr.aria-controls]="uniOffcanvas"
+>
+    <div class="image-container">
+        <img [src]="imagePath">
+        <div class="heart-icon">
+            <i 
+                class="fa-regular fa-heart fa-lg" 
+                style="color: #63E6BE;" 
+                (click)="addToLiked($event)"
+                >
+            </i>
+        </div>
+    </div>
+    <div class="bottom-container p-1">
+        <div class="d-flex description">
+            <span class="infrastructure">{{venue.infrastructure}}</span>
+            <span class="infrastructure">{{venue.square_footage}}</span>
+        </div>
+       
+        <span class="street-name mt-3">{{venue.street}}, {{venue.name}} </span>
+        <br>
+        <span class="venue-price ">{{venue.price}}</span>
+    </div>
+</div>
+
+
+
+    <div 
+    *ngIf="shouldActivateOffcanvas"
+    class="offcanvas offcanvas-start w-100" 
+    data-bs-scroll="true" 
+    tabindex="-1" 
+    [id]="uniOffcanvas" 
+    [attr.aria-labelledby]="uniOffcanvas + 'Label'">
+      <div class="offcanvas-header">
+        <h5 
+            class="offcanvas-title" 
+            [id]="uniOffcanvas + 'Label'">
+            <span class="street-name">{{venue.street}},{{venue.name}} </span>
+        </h5>
+            <button type="button" 
+            class="btn-close" 
+            data-bs-dismiss="offcanvas" 
+            aria-label="Close">
+            </button>
+      </div>
+      <div class="offcanvas-body">
+        {{description}}
+      </div>
+    </div>
