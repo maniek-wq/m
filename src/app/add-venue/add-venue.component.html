@@ -1,0 +1,30 @@
+<div class="main-container">
+    <h1 class="header">Add your venue </h1>
+    
+    
+    <form #venueForm="ngForm">
+        <div class="container d-flex input-container">
+            <div class="venue venue-image d-flex">
+                <span>Add pictures </span>
+                <input type="file"  #imageInput>
+            </div>
+            <div class="venue venue-name d-flex">
+                <span>Enter venue's name</span>
+                <input type="text" name="name" ngModel placeholder="name" #nameInput>
+            </div>
+            <div class="venue venue-street d-flex">
+                <span>Enter venue's destination</span>
+                <input type="text" name="street" ngModel placeholder="destination" #streetInput>
+            </div>
+            <div class="venue venue-price d-flex">
+                <span>Enter venue's price</span>
+                <input type="text" name="price" ngModel placeholder="price" #priceInput>
+            </div>
+            <button class="btn btn-primary"type="submit" (click)="addVenuesToDatabase()">Add Venue</button>
+        </div>
+    </form>
+
+   
+   
+    
+  </div>

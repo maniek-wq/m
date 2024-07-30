@@ -38,29 +38,36 @@ export class VenueComponent {
   get imagePath(){
     return 'assets/users/' + this.venue.image;
   }
+  
   onSelectVenue()
   {
       this.shouldActivateOffcanvas = true;
       console.log(this.shouldActivateOffcanvas);
       this.offcanvas.emit(this.id);
   }
-  
+  likedStorage: string[] = [];
+
   addToLiked(event: Event){
+
     const target = event.currentTarget as HTMLElement;
-    this.shouldActivateOffcanvas = false;
     if (target && !this.isLiked) {
+      this.likedStorage.push(this.id);
       target.classList.add('liked-heart');
       target.classList.remove('fa-regular');
       target.classList.add("fa-solid");
       this.isLiked = true;
-      console.log(this.venue.name + "Dodano do ulubionych!");
+      console.log("Dodano do ulubionych! " + this.venue.name );
+      console.log("Polubione elementy: " + this.likedStorage);
     }else {
       target.classList.remove('liked-heart');
       target.classList.remove('fa-solid');
       target.classList.add('fa-regular');
       this.isLiked = false;
       console.log(this.venue.name + " Usunięto z ulubionych!");
+      this.likedStorage = this.likedStorage.filter(item => item !== this.id);
+      console.log("Polubione elementy: " + this.likedStorage);
     }
+
   }
 
 
