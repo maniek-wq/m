@@ -6,18 +6,23 @@
 </div>
 
 <div class="container-fluid ">
-    <li *ngFor="let user of users; let i = index;">
+    <li *ngFor="let user of venues; let i = index;">
       <app-venue 
       [venue]="user"
       [uniOffcanvas]="'offcanvas' + i"
       [id]="user.id" 
       [description]="user.description"
-      (offcanvas)="onSelectVenue($event)"
+      
       
       ></app-venue>
     </li>
 </div>
-
-  <app-add-venue></app-add-venue>
+  <button type="button" class="btn btn-primary" (click)="addVenue()">Add Venue</button>
+  @if (checkVenue) {
+    <app-add-venue (add)="onAddVenue($event)"></app-add-venue>
+   }
+  
+   
+  
 
 </main>

@@ -32,3 +32,21 @@ span{
     font-weight: 600;
     font-family:sans-serif;
 }
+
+#form{
+    width:100%;
+    height:max-content;
+    display:flex;
+    flex-direction: column;
+    padding: 10px;
+    gap:10px;
+    border: solid .5px black;
+}
+ .element{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    justify-items: flex-start;
+    flex-direction: column;
+    padding:5px;
+ }

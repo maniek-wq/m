@@ -1,17 +1,20 @@
 <div 
 class="main-container " 
 (click)="onSelectVenue()" 
-data-bs-toggle="offcanvas" 
-[attr.data-bs-target]="'#' + uniOffcanvas" 
-[attr.aria-controls]="uniOffcanvas"
 >
-    <div class="image-container">
+    <div 
+    class="image-container"
+    data-bs-toggle="offcanvas" 
+    [attr.data-bs-target]="'#' + uniOffcanvas" 
+    [attr.aria-controls]="uniOffcanvas"
+    >
         <img [src]="imagePath">
         <div class="heart-icon">
             <i 
                 class="fa-regular fa-heart fa-lg" 
                 style="color: #63E6BE;" 
-                (click)="addToLiked($event)"
+                (click)="$event.stopPropagation()"
+                (click)="addToLiked($event);false"
                 >
             </i>
         </div>

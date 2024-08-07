@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
-const VenueSchema = new mongoose.Schema({
-  id: String,
+const venueSchema = new mongoose.Schema({
   name: String,
   street: String,
   city: String,
@@ -9,9 +8,9 @@ const VenueSchema = new mongoose.Schema({
   image: String,
   description: String,
   infrastructure: String,
-  square_footage: String
+  square_footage: String,
 });
 
-const Venue = mongoose.model('Venue', VenueSchema);
+const Venue = mongoose.model('Venue', venueSchema);
 
 module.exports = Venue;

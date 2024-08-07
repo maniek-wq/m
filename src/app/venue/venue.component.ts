@@ -1,22 +1,14 @@
 import { Component, Output, EventEmitter,Input, } from '@angular/core';
 import { DATA } from '../data';
-import { OffcanvasComponent } from '../offcanvas/offcanvas.component';
 import { CommonModule } from '@angular/common';
 import * as bootstrap from 'bootstrap';
 
-interface User {
-  name: string;
-  image: string;
-  street: string;
-  price: string;
-  infrastructure: string;
-  square_footage: string;
-}
+import { Venue } from './venue.model';
 
 @Component({
   selector: 'app-venue',
   standalone: true,
-  imports: [OffcanvasComponent,CommonModule],
+  imports: [CommonModule],
   templateUrl: './venue.component.html',
   styleUrl: './venue.component.css'
 })
@@ -27,7 +19,7 @@ export class VenueComponent {
  @Input() description?:string;
  @Input() id!: string;
 
- @Input({required:true}) venue!: User;
+ @Input({required:true}) venue!: Venue;
  
 
  @Output() offcanvas = new EventEmitter();
@@ -39,8 +31,16 @@ export class VenueComponent {
     return 'assets/users/' + this.venue.image;
   }
   
+  
   onSelectVenue()
   {
+    if(this.shouldActivateOffcanvas){
+      const offcanvasElement = document.getElementById(this.uniOffcanvas);
+      if (offcanvasElement) {
+        const bsOffcanvas = new bootstrap.Offcanvas(offcanvasElement);
+        bsOffcanvas.show();
+      }
+    }
       this.shouldActivateOffcanvas = true;
       console.log(this.shouldActivateOffcanvas);
       this.offcanvas.emit(this.id);
@@ -48,25 +48,24 @@ export class VenueComponent {
   likedStorage: string[] = [];
 
   addToLiked(event: Event){
-
-    const target = event.currentTarget as HTMLElement;
+    event.stopPropagation();
+    let target = event.currentTarget as HTMLElement;
     if (target && !this.isLiked) {
       this.likedStorage.push(this.id);
+      
       target.classList.add('liked-heart');
       target.classList.remove('fa-regular');
       target.classList.add("fa-solid");
       this.isLiked = true;
-      console.log("Dodano do ulubionych! " + this.venue.name );
-      console.log("Polubione elementy: " + this.likedStorage);
+      
     }else {
       target.classList.remove('liked-heart');
       target.classList.remove('fa-solid');
       target.classList.add('fa-regular');
       this.isLiked = false;
-      console.log(this.venue.name + " Usunięto z ulubionych!");
       this.likedStorage = this.likedStorage.filter(item => item !== this.id);
-      console.log("Polubione elementy: " + this.likedStorage);
     }
+
 
   }
 

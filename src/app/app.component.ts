@@ -4,12 +4,11 @@ import { CommonModule } from '@angular/common';
 import { DATA } from './data';
 import { VenueComponent } from './venue/venue.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { OffcanvasComponent } from './offcanvas/offcanvas.component';
 import { CommonService } from './common.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgIf } from '@angular/common'
 import { AddVenueComponent } from "./add-venue/add-venue.component";
-
+import { type NewVenueData } from './venue/venue.model';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +18,6 @@ import { AddVenueComponent } from "./add-venue/add-venue.component";
     CommonModule,
     VenueComponent,
     NavbarComponent,
-    OffcanvasComponent,
     HttpClientModule,
     NgIf,
     AddVenueComponent
@@ -27,24 +25,47 @@ import { AddVenueComponent } from "./add-venue/add-venue.component";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
+@Input({required: true}) name!: string;
+  checkVenue = false;
 
-  users = DATA;
-  onSelectVenue(id: string){
-    console.log("Selected Venue's id: " + id );
+  addVenue(){
+    this.checkVenue = true; 
   }
-  data: any[] = [];
 
+ 
+  
   venues = DATA;
-  constructor(private commonService: CommonService) { }
 
-  ngOnInit() { }
-
-  addVenuesToDatabase() {
-    this.venues.forEach(venue => {
-      this.commonService.addVenue(venue).subscribe((response: any) => {
-        console.log('Venue added:', response);
-      });
+  
+  onAddVenue(venueData:NewVenueData){
+    
+    this.venues.push({
+      id: new Date().getTime().toString(),
+      name: venueData.name,
+      street: venueData.street,
+      city: venueData.city,
+      price: venueData.price,
+      image: venueData.image,
+      description: venueData.description,
+      infrastructure: venueData.infrastructure,
+      square_footage: venueData.square_footage,
     });
+    this.checkVenue = false;
   }
+  
+
+  
+  // constructor(private commonService: CommonService) { }
+
+
+  // ngOnInit() { }
+
+  // addVenuesToDatabase() {
+  //   this.venues.forEach(venue => {
+  //     this.commonService.addVenue(venue).subscribe((response: any) => {
+  //       console.log('Venue added:', response);
+  //     });
+  //   });
+  // }
 }

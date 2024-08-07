@@ -1,30 +1,81 @@
-<div class="main-container">
-    <h1 class="header">Add your venue </h1>
+<form (ngSubmit)="onSubmit()" id="form">
     
+    <div class="name element">
+        <span>Enter venue's name</span>
+        <input 
+        type="text"  
+        name="name"
+        id="input-name" 
+        [(ngModel)]="enteredName" 
+        [ngModelOptions]="{standalone: true}"
+        >
+    </div>
     
-    <form #venueForm="ngForm">
-        <div class="container d-flex input-container">
-            <div class="venue venue-image d-flex">
-                <span>Add pictures </span>
-                <input type="file"  #imageInput>
-            </div>
-            <div class="venue venue-name d-flex">
-                <span>Enter venue's name</span>
-                <input type="text" name="name" ngModel placeholder="name" #nameInput>
-            </div>
-            <div class="venue venue-street d-flex">
-                <span>Enter venue's destination</span>
-                <input type="text" name="street" ngModel placeholder="destination" #streetInput>
-            </div>
-            <div class="venue venue-price d-flex">
-                <span>Enter venue's price</span>
-                <input type="text" name="price" ngModel placeholder="price" #priceInput>
-            </div>
-            <button class="btn btn-primary"type="submit" (click)="addVenuesToDatabase()">Add Venue</button>
+    <div class="price element">
+        <span>Enter venue's street</span>
+        <input 
+        type="text" 
+        name="street"
+        [(ngModel)]="enteredStreet" 
+        [ngModelOptions]="{standalone: true}">
+    </div>
+
+    <div class="city element">
+        <span>Enter venue's city</span>
+        <input 
+        type="text" 
+        name="city"
+        [(ngModel)]="enteredCity" 
+        [ngModelOptions]="{standalone: true}">
+    </div>
+
+    <div class="city element">
+        <span>Enter venue's price</span>
+        <input 
+        type="text" 
+        name="price"
+        [(ngModel)]="enteredPrice" 
+        [ngModelOptions]="{standalone: true}">
+    </div>
+
+    <div class="image element">
+        <span>Enter venue's image</span>
+        <input 
+        type="file" 
+        name="image"
+        (change)="onFileChange($event)" 
+        >
+    </div>
+
+    <div class="description element">
+            <span>Enter venue's description</span>
+            <input 
+            type="text"
+            name="description"
+            [(ngModel)]="enteredDescription" 
+            [ngModelOptions]="{standalone: true}"
+            >
         </div>
-    </form>
+
+        <div class="infrastructure element">
+            <span>Enter venue's infrastructure</span>
+            <input 
+            type="text" 
+            name="infrastructure"
+            [(ngModel)]="enteredInfrastructure" 
+            [ngModelOptions]="{standalone: true}">
+        </div>
+
+    <div class="square-footage element">
+        <span>Enter venue's square footage</span>
+        <input 
+        type="text" 
+        name="square_footage"
+        [(ngModel)]="enteredSquare_Footage" 
+        [ngModelOptions]="{standalone: true}">
+    </div>
+
+        <button  type="submit" class="btn btn-primary">Confirm</button>
 
    
-   
-    
-  </div>
+</form>
