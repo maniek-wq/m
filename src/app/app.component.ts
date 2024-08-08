@@ -25,7 +25,9 @@ import { type NewVenueData } from './venue/venue.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent{
+export class AppComponent {
+
+
 @Input({required: true}) name!: string;
   checkVenue = false;
 
@@ -33,8 +35,6 @@ export class AppComponent{
     this.checkVenue = true; 
   }
 
- 
-  
   venues = DATA;
 
   
@@ -54,7 +54,10 @@ export class AppComponent{
     this.checkVenue = false;
   }
   
+  ngAfterViewInit(): void {
 
+    (window as any).bootstrap?.Dropdown?.getOrCreateInstance(document.querySelector('[data-bs-toggle="dropdown"]'));
+  }
   
   // constructor(private commonService: CommonService) { }
 

@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { DATA } from '../data';
 import { VenueComponent } from '../venue/venue.component';
-import { NgIf } from '@angular/common'
+import { NgIf } from '@angular/common';
 import { type NewVenueData } from '../venue/venue.model';
 
 @Component({
@@ -23,6 +23,7 @@ export class AddVenueComponent{
 
   @Output() add = new EventEmitter<NewVenueData>();
 
+  backgroundImage: string | null = null;
   enteredId = '';
   enteredName = '';
   enteredStreet= '';
@@ -35,12 +36,14 @@ export class AddVenueComponent{
 
   onFileChange(event: Event) {
     const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
+    if (input.files && input.files[0]) {
       const file = input.files[0];
       const reader = new FileReader();
-      reader.onload = () => {
-        this.enteredImage = reader.result as string;
+
+      reader.onload = (e: ProgressEvent<FileReader>) => {
+        this.backgroundImage = e.target?.result as string;
       };
+
       reader.readAsDataURL(file);
     }
   }

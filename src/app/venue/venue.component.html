@@ -53,6 +53,44 @@ class="main-container "
             </button>
       </div>
       <div class="offcanvas-body">
+        <div 
+        id="'#' + uniOffcanvas" 
+        class="carousel slide"
+        [attr.aria-controls]="uniOffcanvas"
+        [attr.data-bs-target]="'#' + uniOffcanvas"
+        >
+
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img [src]="imagePath" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img [src]="imagePath" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img [src]="imagePath" class="d-block w-100" alt="...">
+              </div>
+            </div>
+
+            <button 
+            class="carousel-control-prev" 
+            type="button" 
+            id="'#' + uniOffcanvas"
+            [attr.data-bs-target]="'#' + uniOffcanvas"
+            data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button 
+            class="carousel-control-next" 
+            type="button" 
+            [attr.data-bs-target]="'#' + uniOffcanvas"
+            data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+
+          </div>
         {{description}}
       </div>
     </div>

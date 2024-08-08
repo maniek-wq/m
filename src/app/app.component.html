@@ -12,11 +12,10 @@
       [uniOffcanvas]="'offcanvas' + i"
       [id]="user.id" 
       [description]="user.description"
-      
-      
       ></app-venue>
     </li>
 </div>
+
   <button type="button" class="btn btn-primary" (click)="addVenue()">Add Venue</button>
   @if (checkVenue) {
     <app-add-venue (add)="onAddVenue($event)"></app-add-venue>
