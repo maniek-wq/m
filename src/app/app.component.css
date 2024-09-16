@@ -1,13 +1,19 @@
 
 main{
-    background-color: #f1f1f1;
+   
     width:100dvw;
     height:auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     gap:1rem;
+    margin-top: 3rem;
+   height: auto;
 }
+h5{
+    color:#B1B1B1;
+    padding: 1rem;
+  }
 .container-fluid li{
     list-style: none;
 }

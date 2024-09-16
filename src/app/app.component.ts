@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgIf } from '@angular/common'
 import { AddVenueComponent } from "./add-venue/add-venue.component";
 import { type NewVenueData } from './venue/venue.model';
+import { FindVenueComponent } from "./find-venue/find-venue.component";
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,8 @@ import { type NewVenueData } from './venue/venue.model';
     NavbarComponent,
     HttpClientModule,
     NgIf,
-    AddVenueComponent
+    AddVenueComponent,
+    FindVenueComponent
 ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

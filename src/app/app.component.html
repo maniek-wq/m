@@ -1,10 +1,7 @@
 <main>
 <app-navbar></app-navbar>
-<div class="d-flex my-span">
-  <span class="number-of-properties">x-properties</span>
-  <i class="fa-solid fa-filter" style="color: #c7c7c7;"></i>
-</div>
-
+<app-find-venue></app-find-venue>
+<h5 class="">Premises</h5>
 <div class="container-fluid ">
     <li *ngFor="let user of venues; let i = index;">
       <app-venue 
@@ -16,10 +13,10 @@
     </li>
 </div>
 
-  <button type="button" class="btn btn-primary" (click)="addVenue()">Add Venue</button>
+  <!-- <button type="button" class="btn btn-primary" (click)="addVenue()">Add Venue</button>
   @if (checkVenue) {
     <app-add-venue (add)="onAddVenue($event)"></app-add-venue>
-   }
+   } -->
   
    
   
