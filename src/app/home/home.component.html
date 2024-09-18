@@ -1,0 +1,22 @@
+<main>
+    <app-navbar></app-navbar>
+    <app-find-venue></app-find-venue>
+    <h5 class="">Premises</h5>
+    <div class="container-fluid ">
+      <li *ngFor="let user of venues; let i = index;">
+          <app-venue 
+          [venue]="user"
+          [uniOffcanvas]="'offcanvas' + i"
+          [id]="user.id" 
+          [description]="user.description"
+          
+          ></app-venue>
+        </li>
+    </div>
+    
+       <!-- <button type="button" class="btn btn-primary" (click)="addVenue()">Add Venue</button>
+      @if (checkVenue) {
+        <app-add-venue (add)="onAddVenue($event)"></app-add-venue>
+       }  -->
+    
+</main>

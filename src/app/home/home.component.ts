@@ -1,23 +1,25 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms'; 
 import { CommonModule } from '@angular/common';
-import { DATA } from './data';
-import { VenueComponent } from './venue/venue.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { DATA } from '../data';
+import { VenueComponent } from '../venue/venue.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 import { NgIf } from '@angular/common'
-import { AddVenueComponent } from "./add-venue/add-venue.component";
-import { type NewVenueData } from './venue/venue.model';
-import { FindVenueComponent } from "./find-venue/find-venue.component";
+import { AddVenueComponent } from "../add-venue/add-venue.component";
+import { type NewVenueData } from '../venue/venue.model';
+import { FindVenueComponent } from "../find-venue/find-venue.component";
 import { RouterOutlet } from '@angular/router';
 import { RouterModule } from '@angular/router';
-import { RegistrationComponent } from "./registration/registration.component";
+import { RegistrationComponent } from "../registration/registration.component";
 import { RouterLink } from '@angular/router';
 import { RouterLinkActive } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-home',
   standalone: true,
   imports: [
+    NavbarComponent, 
+    FindVenueComponent, 
     RouterOutlet,
     RouterLink,
     RouterLinkActive,
@@ -29,15 +31,12 @@ import { RouterLinkActive } from '@angular/router';
     AddVenueComponent,
     FindVenueComponent,
     RouterModule,
-    RegistrationComponent,
-],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    RegistrationComponent,],
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.css'
 })
-export class AppComponent {
-
-
-@Input({required: true}) name!: string;
+export class HomeComponent {
+  @Input({required: true}) name!: string;
   checkVenue = false;
 
   addVenue(){
@@ -64,18 +63,4 @@ export class AppComponent {
     this.checkVenue = false;
   }
   
-
-  
-  // constructor(private commonService: CommonService) { }
-
-
-  // ngOnInit() { }
-
-  // addVenuesToDatabase() {
-  //   this.venues.forEach(venue => {
-  //     this.commonService.addVenue(venue).subscribe((response: any) => {
-  //       console.log('Venue added:', response);
-  //     });
-  //   });
-  // }
 }

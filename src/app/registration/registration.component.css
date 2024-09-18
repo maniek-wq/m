@@ -1,0 +1,85 @@
+main{
+    height:100dvh;
+    width:100dvw;
+    background-color: #FFFFFF;
+    text-align: center;
+    font-family: 'poppins';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    gap:15px;
+    opacity:1;
+    position: absolute;
+    left:0;
+    top:0;
+}
+.blured-img{
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(6px);
+    width:100dvw;
+    height:100dvh;
+}
+.fa-circle-arrow-left{
+    position: absolute;
+    top:5dvh;
+    left:5dvw;
+}
+.paragraph{
+    color:#b6b6b6;
+}
+
+.form{
+    gap:1rem;
+    display: flex;
+    flex-direction: column;
+    width:100dvw;
+    
+    justify-content: center;
+    align-items: center;
+}
+.input{
+  
+    width:inherit;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.input input{
+   display: flex;
+   flex-direction: column;
+    border-radius: 15px;
+    border:solid .5px rgb(185, 185, 185);
+    width:95%;
+    align-self: center;
+    height:3rem;
+
+}
+
+.input span{
+   align-self: flex-start;
+   padding-left: 2.5%;
+    
+}
+
+
+.btn-success{
+    width:95%;
+}
+
+.final-button{
+    flex-direction: column;
+    gap:15px;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+.checkbox{
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    gap:5px;
+}

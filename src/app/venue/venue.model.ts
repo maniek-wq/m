@@ -5,6 +5,7 @@ export interface Venue {
     price: string;
     infrastructure: string;
     square_footage: string;
+    no_people:string;
   }
 
 export interface NewVenueData{
@@ -17,4 +18,5 @@ export interface NewVenueData{
       description: string,
       infrastructure: string,
       square_footage: string,
+      no_people:string,
 }

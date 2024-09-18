@@ -3,6 +3,8 @@
 class="main-container " 
 (click)="onSelectVenue()" 
 >
+<router-outlet></router-outlet>
+<span class="badge text-bg-secondary d-flex"><i class="fa-solid fa-person" style="color: #b1b1b1;"></i>{{venue.no_people}}</span>
     <div 
     class="image-container"
     data-bs-toggle="offcanvas" 
@@ -28,7 +30,9 @@ class="main-container "
 
       <div class="d-flex w-100 btn-container">
         <span class="infrastructure">{{venue.square_footage}}</span>
-        <div class="button rent-button d-flex">Rent</div>
+        
+          <div class="button rent-button d-flex">Rent</div>
+        
       </div>
 
     </div>
@@ -43,57 +47,30 @@ class="main-container "
     tabindex="-1" 
     [id]="uniOffcanvas" 
     [attr.aria-labelledby]="uniOffcanvas + 'Label'">
-      <div class="offcanvas-header">
-        <h5 
-            class="offcanvas-title" 
-            [id]="uniOffcanvas + 'Label'">
-            <span class="street-name">{{venue.street}},{{venue.name}} </span>
-        </h5>
-            <button type="button" 
-            class="btn-close" 
-            data-bs-dismiss="offcanvas" 
-            aria-label="Close">
-            </button>
+    
+      
+        <img [src]="imagePath" class="offcanvas-header img" >     
+     
+     
+      <button type="button" class="btn-exit"data-bs-dismiss="offcanvas" 
+      aria-label="Close"><i class="fa-solid fa-arrow-left fa-2xl" style="color: #ffffff;"></i></button>
+      
+      <div class="place">
+        
+        <h1 class="name-place">{{venue.name}}</h1>
+        <p class="place-desc">Best place for larger parties</p>
       </div>
+
       <div class="offcanvas-body">
-        <div 
-        id="'#' + uniOffcanvas" 
-        class="carousel slide"
-        [attr.aria-controls]="uniOffcanvas"
-        [attr.data-bs-target]="'#' + uniOffcanvas"
-        >
-
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img [src]="imagePath" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img [src]="imagePath" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img [src]="imagePath" class="d-block w-100" alt="...">
-              </div>
-            </div>
-
-            <button 
-            class="carousel-control-prev" 
-            type="button" 
-            id="'#' + uniOffcanvas"
-            [attr.data-bs-target]="'#' + uniOffcanvas"
-            data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button 
-            class="carousel-control-next" 
-            type="button" 
-            [attr.data-bs-target]="'#' + uniOffcanvas"
-            data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-
-          </div>
-        {{description}}
+        <div class="buttons">
+          <button type="button" class="email-button btn"><i class="fa-regular fa-envelope" style="color: #ffffff;"></i>Continue with e-mail</button>
+          <button type="button" class="google-button btn"><i class="fa-brands fa-google" style="color: #DB4437;"></i>Continue with google</button>
+        </div>
+        <p>Don't have an account?
+        <a routerLink ="Registration" class="sign-up">
+          <span> Sign up</span>
+        </a></p>
+        <hr class="hr-line">
+        <p class="privacy">By registering, you have agreed to our <span style="color:#7C511D;">terms of service</span> and <span style="color:#7C511D;">privacy policy</span></p>
       </div>
     </div>

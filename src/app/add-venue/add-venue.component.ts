@@ -33,7 +33,7 @@ export class AddVenueComponent{
   enteredDescription = '';
   enteredInfrastructure = '';
   enteredSquare_Footage = '';
-
+  enteredNo_people = '';
   onFileChange(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files[0]) {
@@ -59,6 +59,7 @@ export class AddVenueComponent{
       description: this.enteredDescription,
       infrastructure: this.enteredInfrastructure,
       square_footage: this.enteredSquare_Footage,
+      no_people: this.enteredNo_people,
     };
     this.add.emit(newVenue);
   }

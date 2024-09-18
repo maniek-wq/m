@@ -2,13 +2,13 @@ import { Component, Output, EventEmitter,Input, } from '@angular/core';
 import { DATA } from '../data';
 import { CommonModule } from '@angular/common';
 import * as bootstrap from 'bootstrap';
-
+import { RouterModule } from '@angular/router';
 import { Venue } from './venue.model';
 
 @Component({
   selector: 'app-venue',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './venue.component.html',
   styleUrl: './venue.component.css'
 })
@@ -18,7 +18,7 @@ export class VenueComponent {
  @Input({required:true}) uniOffcanvas!:string;
  @Input() description?:string;
  @Input() id!: string;
-
+  
  @Input({required:true}) venue!: Venue;
  
 
@@ -72,3 +72,7 @@ export class VenueComponent {
 
 
 }
+function I(target: VenueComponent, propertyKey: 'venue'): void {
+  throw new Error('Function not implemented.');
+}
+

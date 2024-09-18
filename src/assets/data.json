@@ -8,7 +8,8 @@
       "image": "hala.jpg", 
       "description": "Modern place Hala Odra",
       "infrastructure": "Old Warehouse",
-      "square_footage": "1000m"
+      "square_footage": "1000m",
+      "no_people":"2000"
     },
     { 
       "id": "u2",
@@ -19,7 +20,8 @@
       "image": "hala2.jpg",
       "description": "Modern place Coyote Club",
       "infrastructure": "Flat",
-      "square_footage": "200m"
+      "square_footage": "200m",
+      "no_people":"1000"
     },
     { 
       "id": "u3",
@@ -30,7 +32,8 @@
       "image": "hala3.jpg", 
       "description": "Modern place City Hall",
       "infrastructure": "Basement",
-      "square_footage": "350m"
+      "square_footage": "350m",
+      "no_people":"1500"
     }
   ]
   
