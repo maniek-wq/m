@@ -82,6 +82,20 @@
   width:100%;
 }
 
+.nameRating{
+  display: flex;
+  justify-content: space-between;
+}
+.rating{
+  font-size: 1.6rem;
+  font-family: 'poppins';
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color:#A1A1A1;
+}
 .street-name{
   color:#A1A1A1;
   font-weight: 600;
@@ -193,8 +207,8 @@
 
 .btn-exit{
   position: absolute;
-  top:5vh;
-  left:5vw;
+  top:3%;
+  left:2%;
   background: none;
   border: none;
   

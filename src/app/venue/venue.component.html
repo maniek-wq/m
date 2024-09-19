@@ -4,7 +4,7 @@ class="main-container "
 (click)="onSelectVenue()" 
 >
 <router-outlet></router-outlet>
-<span class="badge text-bg-secondary d-flex"><i class="fa-solid fa-person" style="color: #b1b1b1;"></i>{{venue.no_people}}</span>
+<span class="badge text-bg-secondary d-flex"><i class="fa-solid fa-person" style="color: #b1b1b1;"></i>max {{venue.no_people}}</span>
     <div 
     class="image-container"
     data-bs-toggle="offcanvas" 
@@ -23,7 +23,10 @@ class="main-container "
         </div>
     </div>
     <div class="bottom-container p-2">
-      <h2 class="name ">{{venue.name}} </h2>
+
+      <div class="nameRating">
+        <h2 class="name ">{{venue.name}} </h2> <span class="rating"><i class="fa-solid fa-heart " style="color: #63E6BE;"></i>4.7</span>
+      </div>
       
       <span class="street-name ">{{venue.street}} </span>
       
@@ -64,7 +67,7 @@ class="main-container "
       <div class="offcanvas-body">
         <div class="buttons">
           <button type="button" class="email-button btn"><i class="fa-regular fa-envelope" style="color: #ffffff;"></i>Continue with e-mail</button>
-          <button type="button" class="google-button btn"><i class="fa-brands fa-google" style="color: #DB4437;"></i>Continue with google</button>
+          <button type="button" class="google-button btn"><img src="/assets/users/Google.png" alt="">Continue with google</button>
         </div>
         <p>Don't have an account?
         <a routerLink ="Registration" class="sign-up">
