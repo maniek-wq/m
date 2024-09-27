@@ -3,10 +3,11 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AppComponent } from './app.component';
 import { VenueRegisteredComponent } from './venue-registered/venue-registered.component';
 import { HomeComponent } from './home/home.component';
+
 export const routes: Routes = [
     {
         path: '', 
-        component: HomeComponent,
+        component: VenueRegisteredComponent,
         title: 'Home Page',
         
     }, 
