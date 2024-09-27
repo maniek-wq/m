@@ -7,14 +7,20 @@ import { HomeComponent } from './home/home.component';
 export const routes: Routes = [
     {
         path: '', 
-        component: VenueRegisteredComponent,
+        component: HomeComponent,
         title: 'Home Page',
         
     }, 
     {
         path: 'Registration', 
         component: RegistrationComponent,
-        title: 'Home Page',
+        title: 'Registration',
+        
+    }, 
+    {
+        path: 'RegisteredVenue', 
+        component: VenueRegisteredComponent,
+        title: 'Registered',
         
     }, 
 ];
